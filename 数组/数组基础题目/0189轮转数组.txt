@@ -1,0 +1,13 @@
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        for i in range(k):
+            tem=nums.pop()
+            nums.insert(0,tem)
+        print(nums)
+        return 
+
+多种思路解题：
+遍历k，pop 和append
