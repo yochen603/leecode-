@@ -1,0 +1,40 @@
+class Solution(object):
+    def spiralOrder(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+        m=len(matrix)
+        n=len(matrix[0])
+        flag=0
+        addm=m-1
+        addn=n-1
+        posa=0;posb=0
+        rlt=[]
+        rlt.append(matrix[posa][posb])
+        while len(rlt)!=(m*n):
+            if flag%4 ==0:
+                for i in range(addn):
+                    posb+=1
+                    rlt.append(matrix[posa][posb])
+                if flag==0:
+                    addn+=1
+                flag+=1;addn-=1
+            elif flag%4 ==1:
+                for i in range(addm):
+                    posa+=1
+                    rlt.append(matrix[posa][posb])
+                flag+=1;addm-=1
+            elif flag%4 ==2:
+                for i in range(addn):
+                    posb-=1
+                    rlt.append(matrix[posa][posb])
+                flag+=1;addn-=1            
+            elif flag%4 ==3:
+                for i in range(addm):
+                    posa-=1
+                    rlt.append(matrix[posa][posb])
+                flag+=1;addm-=1
+        return rlt
+
+寻找变化数量的趋势
